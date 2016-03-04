@@ -6,7 +6,7 @@ int index = 0;
 
 void setup() {
   for ( int i = BASE ; i < BASE + NUM ; i++ ){
-    pin Mode( i, OUTPUT );
+    pinMode( i, OUTPUT );
   }
 
 }
