@@ -20,6 +20,6 @@ AT設定時將模組Vcc接上5V後需按下Reset(之後與MCU收發資料時可�
 ----------
 
 
-![enter image description here](http://i.imgur.com/3FB3YDh.jpg)
+![enter image description here](http://i.imgur.com/5WuED5e.jpg)
 
 
