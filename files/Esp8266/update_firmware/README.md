@@ -24,10 +24,7 @@ esp8266 firmware update with nodemcu firmware programmer
 
  **接線**
 
-> FT232_Tx       **———** ESP01_Rx
-> FT232_Rx      **———** ESP01_Tx
-> FT232_3.3v    **———** ESP01_Vcc & ESP01_CH_PD
-> FT232_GND    **———** ESP01_GND & **ESP01_GPIO0**
+> ![enter image description here](http://i.imgur.com/Vulc5Kk.png)
 
 [![](http://i.imgur.com/eb717No.png)](http://www.pighixxx.com/test/portfolio-items/esp8266/)
 
