@@ -12,3 +12,9 @@
 > - LED*2
 > - USB to TTL 
 > - 3.3V Power supply (麵包板電源模組、Arduino)
+
+
+----------
+
+
+> 結論:ESP01穩定性、記憶體容量不夠，對power supply的要求也很挑剔，可以用NodeMCU代替，這麼做的可以用行動電源供電。
