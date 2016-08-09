@@ -31,7 +31,7 @@ void loop()
   {
  
     
-    if(esp8266.find("+IPD,"))
+    if(esp8266.find("+IPD,"))  //若接收到"+IPD,"表示用戶已連線
     {
      delay(1000); // wait for the serial buffer to fill up (read all the serial data)
      // get the connection id so that we can then disconnect
@@ -63,24 +63,24 @@ void loop()
 */
 String sendData(String command, const int timeout, boolean debug)
 {
-    String response = "";
+    String response = "";   //接收ESP回應值的變數
     
-    esp8266.print(command); // send the read character to the esp8266
+    esp8266.print(command); // 送出AT命令到ESP模組
     
-    long int time = millis();
+    long int time = millis();          //開機時間
     
-    while( (time+timeout) > millis())
+    while( (time+timeout) > millis())  //當經過等待時間
     {
       while(esp8266.available())
       {
         
-        // The esp has data so display its output to the serial window 
-        char c = esp8266.read(); // read the next character.
+        // 接收ESP傳入的字元
+        char c = esp8266.read(); 
         response+=c;
       }  
     }
     
-    if(debug)
+    if(debug)   //是否要顯示在序列監控視窗
     {
       Serial.print(response);
     }
