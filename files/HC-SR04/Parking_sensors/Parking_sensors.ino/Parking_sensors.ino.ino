@@ -23,6 +23,7 @@ void loop()
 //  inMsec = ultrasonic.convert(microsec, Ultrasonic::IN); // 計算距離&#65292;單位: 英吋
 //  Serial.print("MS: ");
 //  Serial.print(microsec);
+  Serial.println(" ");
   Serial.print("CM: ");
   Serial.print(cmMsec);
 //  Serial.print(", IN: ");
@@ -42,4 +43,3 @@ void loop()
     delay(550/num);
   }
 }
-
