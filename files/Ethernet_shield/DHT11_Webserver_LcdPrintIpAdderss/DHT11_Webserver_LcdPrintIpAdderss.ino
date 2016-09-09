@@ -22,6 +22,7 @@ LiquidCrystal_I2C lcd(0x3F, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);  // Set the LCD I
 P(htmlHead) =
  "<!doctype html><html>"
  "<head><meta charset=\"utf-8\">"
+ "<meta http-equiv=\"refresh\" content=\"3\">"
  "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" /></head>"
  "<link rel=\"stylesheet\" href=\"https://goo.gl/AUevhM\">"
  "<style>body {background-image:url(\"http://i.imgur.com/n0oAAht.jpg\");background-size:cover;}.segment{background:rgba(234,235,236,0.31);text-align:center;}</style>"
@@ -33,7 +34,6 @@ P(htmlFoot) = "</body></html>";
 void defaultCmd(WebServer &server, WebServer::ConnectionType type, char *, bool)
 {
   int chk = DHT11.read(dataPin);
-
   server.httpSuccess();
 
   if (type != WebServer::HEAD){
@@ -43,7 +43,7 @@ void defaultCmd(WebServer &server, WebServer::ConnectionType type, char *, bool)
       server << "<div class=\"ui two column centered grid\"><div class=\"column\"><div class=\"segment\">";
       server << "<h1>溫濕度計</h1>";
       server << "</div></div><div class=\"four column centered row\"><div class=\"segment\"><div class=\"column\">";
-      server << "<p>溫度：" << DHT11.temperature << "&deg;C</p>";
+      server << "<p>溫度：" <<  DHT11.temperature << "&deg;C</p>";
       server << "</div><div class=\"column\">";
       server << "<p>濕度：" << DHT11.humidity << "%</p>";
       server << "</div></div></div></div>";
@@ -57,7 +57,7 @@ void defaultCmd(WebServer &server, WebServer::ConnectionType type, char *, bool)
 void setup() {  
   Serial.begin(9600);
   lcd.begin(20,4);
-  Ethernet.begin(mac  );
+  Ethernet.begin(mac);
   IPAddress ip = Ethernet.localIP(); 
   webserver.setDefaultCommand(&defaultCmd);   // 處理「首頁」請求
   webserver.begin();
