@@ -4,9 +4,9 @@
 #include "WebServer.h"
 
 static byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xFD };
-IPAddress ip(192, 168, 0,102);
-IPAddress subnet(255, 255, 255, 0);
-IPAddress gateway(192, 168, 1, 1);
+//IPAddress ip(192, 168, 0,102);
+//IPAddress subnet(255, 255, 255, 0);
+//IPAddress gateway(192, 168, 1, 1);
 
 WebServer webserver("", 80);
 
