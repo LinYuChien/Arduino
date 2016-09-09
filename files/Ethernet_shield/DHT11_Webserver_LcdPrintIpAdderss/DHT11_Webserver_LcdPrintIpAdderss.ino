@@ -17,6 +17,7 @@ static byte mac[] = { 0xF0, 0x7B, 0xCB, 0x4B, 0x7C, 0x9F };
 //IPAddress gateway(192, 168, 1, 1);
 
 WebServer webserver("", 80);
+LiquidCrystal_I2C lcd(0x3F, 2, 1, 0, 4, 5, 6, 7, 3, POSITIVE);  // Set the LCD I2C address
 
 P(htmlHead) =
  "<!doctype html><html>"
@@ -55,6 +56,7 @@ void defaultCmd(WebServer &server, WebServer::ConnectionType type, char *, bool)
 
 void setup() {  
   Serial.begin(9600);
+  lcd.begin(20,4);
   Ethernet.begin(mac  );
   IPAddress ip = Ethernet.localIP(); 
   webserver.setDefaultCommand(&defaultCmd);   // 處理「首頁」請求
@@ -62,8 +64,34 @@ void setup() {
   Serial.println(F( "\nStarting Ethernet..."));
   Serial.print("My IP address:");
   Serial.print(ip);
+
+  for(int i = 0; i< 3; i++) //背光閃爍三次
+  {
+    lcd.backlight();
+    delay(250);
+    lcd.noBacklight();
+    delay(250);
+  }
+  lcd.backlight();
 }
 
 void loop() {
   webserver.processConnection();
+  
+  lcd.setCursor(2,0); 
+  lcd.print("DHT11 & Webserver");
+  delay(1000);
+  
+  lcd.setCursor(7,1);
+  lcd.print("By YC");
+  delay(1000);  
+  
+  lcd.setCursor(5,2);
+  lcd.print("IP Address:");
+  delay(1000);
+  IPAddress ip = Ethernet.localIP(); 
+  lcd.setCursor(4,3);
+  lcd.print(ip);
+  delay(1000);
+
 }
