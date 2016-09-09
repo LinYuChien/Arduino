@@ -10,10 +10,12 @@ static byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xFD };
 
 WebServer webserver("", 80);
 
+int data = 11;
 P(homePage) = 
     "<!doctype html>"
     "<html><head><meta charset=\"UTF-8\" />"
     "<title>Webduino test</title>"
+     homePage << "Analog " << data << "<br/>";
     "</head><body>"
     "This is index test"
     "</body></html>";
