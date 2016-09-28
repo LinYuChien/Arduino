@@ -52,13 +52,13 @@ void LCD_print_data(){
 void sendValueToThingSpeak(float Hum,float Tem)
 {
   mySerial.print("IoT+{1:" + String(Hum) + "},{2:" + String(Tem) + "}");
-//  Serial.print("Sent Humidity:");
-//  Serial.print(Hum);
-//  Serial.println("% to thingspeak.com");
-//  Serial.print("Sent Temperature:");
-//  Serial.print(Tem);
-//  Serial.println("*C to thingspeak.com");
-//  Serial.println("----------------------");
+  Serial.print("Sent Humidity:");
+  Serial.print(Hum);
+  Serial.println("% to thingspeak.com");
+  Serial.print("Sent Temperature:");
+  Serial.print(Tem);
+  Serial.println("*C to thingspeak.com");
+  Serial.println("----------------------");
 }
 
 void setup() {
@@ -98,7 +98,7 @@ void loop() {
   delay(100);
   
   lcd.setCursor(0,3);
-  lcd.print("   goo.gl/XIabjQ    ");
+  lcd.print("   ppt.cc/bnPdu     ");
   delay(100);
 }
 
