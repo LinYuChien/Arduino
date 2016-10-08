@@ -6,8 +6,8 @@
 
 /*
  *首先，寄信信箱帳號密碼編碼: https://www.base64encode.org/
- *Edit 1.寄信信箱帳密編碼(29~31)
- *    
+ *Edit 1.寄信信箱帳密編碼(27.28)
+ *     2.FROM字串僅能為英數字(29)
 */
 
 #ifndef G_SENDER

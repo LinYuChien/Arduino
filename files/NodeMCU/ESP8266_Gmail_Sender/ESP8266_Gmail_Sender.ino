@@ -1,6 +1,6 @@
 //Ref:http://www.instructables.com/id/ESP8266-GMail-Sender/step2/Edit-sketch/#intro
 /*
- *Edit 1.Wifi ssid password(第9行)
+ *Edit 1.Wifi ssid password(第12.13行)
  *     2.標題、內文、收信信箱(67~69)
  *     
  *
