@@ -2,7 +2,7 @@
 #define DEBUG true
 
 SoftwareSerial esp8266(7,8); //(RX,TX)
-String ThingTweet_API="B2B4JF5WEUXGCOUY";
+String ThingTweet_API="API";
 int i=0; //counter
 
 void setup() {
