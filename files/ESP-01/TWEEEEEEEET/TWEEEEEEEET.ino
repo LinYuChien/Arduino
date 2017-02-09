@@ -14,7 +14,6 @@
 SoftwareSerial esp8266(7,8); //(RX,TX)
 DHT dht(4, DHT22);
 
-
 float h,t;
 //指定AP
 String ssid="SSID";
