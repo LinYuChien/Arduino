@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>顯示溫度</title>
+ </head>
+ <body>
+  氣溫： <span id="temp"> </span> &deg;C <br><br>
+  濕度： <span id="hum"> </span> %
+  <script src="js/jquery-2.1.3.min.js"></script>
+  <script>
+    $(function(){
+        function getTemp() {
+            // 請自行修改IP位址
+            $.getJSON("http://192.168.0.101/temp.json", function(data){
+                $("#temp").html(data.temp);
+                $("#hum").html(data.humid);
+            });
+        }
+        getTemp();  // 網頁載入完畢時，立即讀取並顯示溫溼度值。
+        window.setInterval(function(){
+            getTemp();
+        }, 5000);
+    });
+  </script>
+ </body>
+</html>
