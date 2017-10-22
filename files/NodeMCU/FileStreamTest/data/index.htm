@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ESP8266物聯網</title>
+    <link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
+    <style type="text/css">
+    body {
+        font-family: "微軟正黑體", "黑體-繁", sans-serif;
+    }
+    #slider {
+    width: 300px;
+    margin: 15px;
+    }
+    </style>
+  </head>
+
+  <body>
+    <h1>燈光控制器</h1>
+    LED亮度：
+    <div id="slider"></div>
+    LED開關：
+    <div id="LED_SW">
+        <input type="radio" id="LED_ON" class="SW" value="ON" name="SW"><label for="LED_ON"> 開 </label>
+        <input type="radio" id="LED_OFF" class="SW" checked="checked" value="OFF" name="SW"><label for="LED_OFF"> 關 </label>
+    </div>
+    <br>
+    <!-- <img src="img/200.gif"> -->
+
+    <div class="ui card">
+      <div class="image">
+        <img src="img/wemos.jpg">
+      </div>
+      <div class="content">
+        <a class="header">Kristy</a>
+        <div class="meta">
+          <span class="date">Joined in 2013</span>
+        </div>
+        <div class="description">
+          Kristy is an art director living in New York.
+        </div>
+      </div>
+      <div class="extra content">
+        <a>
+          <i class="user icon"></i>
+          22 Friends
+        </a>
+      </div>
+    </div>
+
+    <br>
+    
+
+    <!-- <p>本範例為《<a href="http://swf.com.tw/?p=874">超圖解物聯網IoT實作入門</a>》補充內容。</p> -->
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script>
+    var light = 127;
+
+    $(function() {
+    $( "#LED_SW" ).buttonset();
+    $(".SW").change(function(evt) {
+        var state = $(this).val();
+        $.post("/sw", {led:state});
+    });
+
+    $( "#slider" ).slider({
+        orientation: "horizontal",
+        range: "max",
+        max: 255,
+        value: 127,
+        change: function(){
+        var val = $(this).slider("value");
+        $.post("/pwm", {led:val});
+        }
+    });
+    });
+    </script>
+  </body>
+</html>
